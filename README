@@ -1,5 +1,4 @@
-Dary
-----
+# Dary
 
 Dary is a library which implements a data structure called Double-Array. Double-Array
 is one of the structure of TRIE. Dary can construct a dictionary with reasonable time
@@ -7,36 +6,28 @@ consuming, can find value by key very fast. (It only depends on the length of se
 key.)
 
 
-Install
-=======
+## Install
 
-./configure; make; make install
+    ./configure; make; make install
 
-How to use
-==========
+## How to use
 
 First, build double array index with command 'darybuild'.
 
-$ darybuild keywords.txt keywords.dary
+    $ darybuild keywords.txt keywords.dary
 
 keywords.txt should contain one keyword per line, need not to be sorted.
 
 Next, search with command 'darysearch'. darysearch do common prefix search by input string.
 
-$ darysearch keywords.dary
-(Input something)
+    $ darysearch keywords.dary
+    (Input something)
 
+If you want to use dary from your programs, your program should link to libdary. 
+See dary.h for functions you can use with dary.
+You may want to see sample in sample directory.
 
-If you want to use dary from your programs, your program should link to libdary. See
-dary.h for functions you can use with dary. You may want to see sample in sample directory.
-
-Restriction
-===========
+## Restriction
 
  * Key deleation feature is not implemented yet.
  * API would be changed later.
-
-Feedback
-========
-
-Please send feedbacks to tkng [at] xem [dot] jp. (Replace [at] with @ and [dot] with .)
