@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <link rel="stylesheet" type="text/css" media="screen" href="dary.css">
+  <title>How to use dary?</title>
+</head>
+<body>
+<h1>How to use dary?</h1>
+
+<h2>Create double-array</h2>
+<p>
+To build a double-array index file, you use command 'darybuild'.
+<p>
+<pre>
+$ darybuild keywords.txt keywords.dary
+</pre>
+<p>
+keywords.txt should contain one keyword per line, need not to be sorted.
+</p>
+
+<h2>Search from double-array</h2>
+
+<p>You use command 'darysearch' for common prefix search by input string.</p>
+<pre>
+$ darysearch keywords.dary
+(Input something)
+</pre>
+
+<h2>Extra usage</h2>
+<p>
+If you want to use dary from your programs, your program should link to libdary. See
+dary.h for functions you can use with dary. You may want to see sample in sample directory.
+</p>
+
+</body></html>

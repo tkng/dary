@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" media="screen" href="dary.css">
+<title>Dary, a Double-ARraY library</title>
+<body>
+
+<!--
+<div class="header">
+<a href="index.ja.html">Japanese</a>
+</div>
+-->
+
+<h1>Dary, a Double-ARraY library</h1>
+
+<h2>What's dary</h2>
+<p>
+Dary is a library which implemented a data structure called 'double-array'. Double-array is a concrete data structure to substantialize TRIE with compact space usage. You can use dary as a fast dictionary library.
+
+If you want to know more about Double Array, see <a href="#references">references</a>.
+</p>
+
+<h2>Features</h2>
+
+<ul>
+  <li>Dynamic, fast array construction. Dary's element insertion is fast, comparable to hash table. (You can construct a Double Array which includes over 100,000 keys within 1.0 sec.)</li>
+  <li>Very small library size. (only 12kB after stripped.)</li>  
+  <li>Both prefix-search and common-prefix-search are available.</li>
+</ul>
+
+<h2>Download</h2>
+
+<p><a href="./files/dary-0.3.1.tar.gz">dary-0.3.1.tar.gz</a> (Released on 24 December, 2007)</p>
+
+<h2>Requirement</h2>
+
+  <p>
+    To build a library from source, you need a C99 compliant C compiler.
+    If you want to use test code, you need to install glib-2.0 before compilation of dary.
+  </p>
+
+
+<h2>News</h2>
+
+<h3>version 0.3.1</h3>
+
+<ul>
+  <li>Fixed dary.pc cannot be used.</li>
+  <li>Removed unneed dependency for libprofiler.</li>
+  <li>Fixed misc bugs.</li>
+</ul>
+
+<h3>version 0.3.0</h3>
+
+<ul>
+  <li>Fixed some small bugs.</li>
+  <li>Implemented prefix search and common prefix search.</li>
+  <li>Most of array construction code has been refined.</li>
+</ul>
+
+<h2>Performance evaluation</h2>
+
+<p>We compared Dary and <a href="http://www-tsujii.is.s.u-tokyo.ac.jp/~hillbig/tx.htm">Tx</a> from the point of view of index size, construction time and search.</p>
+
+<h3>Input data</h3>
+<ul>
+<li>Keywords extracted from Wikipedia Japanese. (<a href="files/wikipedia-keywords.bz2">download</a>, note that this file maybe licensed under GFDL because this file is made from Wikipedia.)</li>
+<li>Number of keywords: 687,876</li>
+<li>Total input size: 14,479,116 bytes</li>
+<li>All tests are executed 3 times, using average time.</li>
+</ul>
+
+<h3>Index size and construction time</h3>
+
+<table>
+<tr><td></td><th>Size of index (byte)</th><th>Construction time (second)</th></tr>
+<tr><td>Dary</td><td>79,162,548</td><td>4.91</td></tr>
+<tr><td>Tx</td><td>9,997,407</td><td>3.11</td></tr>
+</table>
+
+<h3>Search performance</h3>
+
+<p>Measured average time of exact matchings of all entries in index.</p>
+
+
+<table>
+<tr><td></td><th>Time (second)</th></tr>
+<tr><td>Dary</td><td>1.52</td></tr>
+<tr><td>Tx</td><td>8.52</td></tr>
+</table>
+
+<h2>API</h2>
+
+<p>See <a href="howto.html">How to use</a>. Though it's unfinished...</p>
+
+<h2>Future work</h2>
+
+<ul>
+  <li>Implement key deletion feature.</li>
+  <li>Performance tuning.</li>
+  <li>Write test.</li>
+  <li>Write API documents.</li>
+  <li>Clean up code.</li>
+  <li>Fix up the API.</li>
+  <li>Implement array compression.</li>
+</ul>
+
+<h2 id="references">References and links</h2>
+
+<ul>
+  <li>[Aoe1989] J. Aoe: An Efficient Digital Search Algorithm by Using a Double-Array Structure. IEEE Transactions on Software Engineering. Vol. 15, 9 (Sep 1989). pp. 1066-1077.</li>
+  <li>K. Morita, El-S. Atlam, M. Fuketa, K. Tsuda and J. Aoe: Fast and compact updating algorithms of a double-array structure, International Journal of Information Sciences，Vol.159，No.1-2, pp.53-67 (2004).
+  </li>
+  <li><a href="http://www-tsujii.is.s.u-tokyo.ac.jp/~hillbig/tx.htm">Tx</a>: Tx is a library for succinct trie data structure. </li>
+  <li><a href="http://chasen.org/~taku/software/darts/">Darts</a>: Darts is a double-array library implemented as a C++ templete, used in Chasen and Mecab. (Both Chasen and Mecab are Morphological Analyzer for Japanese.)
+  </li>
+  <li> <a href="http://linux.thai.net/~thep/datrie/datrie.html">Datrie</a>: Datrie is a double-array library implemented in C.
+  </li>
+</ul>
+
+</body></html>
