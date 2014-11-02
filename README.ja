@@ -1,0 +1,66 @@
+Dary (；´Д`)
+-------------
+
+DaryはDoubleArrayと呼ばれる、TRIE構造を実現するためのデータ構造の実装です。
+
+キーと値を登録しておくと、キーから対応する値を高速に検索することが出来ます。検索速度
+はkを検索キーの長さとした時、O(k)となります。実際の検索速度も、登録されている単語数
+にはほとんど影響を受けません。
+
+Daryの特長はDoubleArrayの構築が高速であることです。On the flyにTRIEを構築したいとか、
+ちょくちょく変更を加えたい、というような場合に向いています。
+
+簡単な使用法
+============
+
+まず、darybuildコマンドを用いて、daryインデックスを作成します。
+
+$ ./src/darybuild wikipedia-keywords wikipedia-keywords.dary
+
+なお、付属のwikipedia-keywordsはソートしてありますが、ソートしてないものでも問題なく
+インデックスは作成できます。あと、インデックスがあれば、元ファイルは削除しても大丈夫
+です。
+
+検索にはdarysearchコマンドを用います。darysearchは入力された文字列を用いてCommon Prefix
+ Searchを行います。
+
+$ ./src/darysearch wikipedia-keywords.dary
+東京特許許可局
+東
+東京
+東京特許許可局
+
+
+本格的に使用する際には、ライブラリであるlibdaryを使うことになります。どのようなイン
+ターフェースが使用できるかに関しては、dary.hをご覧下さい。また、実際の使用例はsample
+ディレクトリのsample.cにあります。
+
+制限事項
+========
+
+キーの削除機能は未実装です。
+
+APIを変更する予定があります。特に、型関係（intをint32_tにするとか）と、valuesの扱い
+の関係で変更の可能性が高いです。
+
+連絡先
+======
+
+バグ報告等に関してはtkng [at] xem [dot] jpまで。[at]と[dot]をそれぞれ@と.で置換して
+下さい。
+
+
+
+Format
+======
+
+現在考えてる、将来的にはこういう仕様にしたいなというファイル保存時のフォーマット。
+
+Version 1
+---------
+
+First 4  bytes: magic number 
+Next  4  bytes: version of format.
+Next  4  bytes: size of one value element
+Next  4  bytes: number of elements
+
